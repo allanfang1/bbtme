@@ -2,6 +2,8 @@ import { React } from "react";
 
 export default function PageTwo(){
     return (
-        <div>Page2</div>
+        <div className="general-box">
+
+        </div>
     );
 }
