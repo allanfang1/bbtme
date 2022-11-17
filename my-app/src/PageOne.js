@@ -37,8 +37,12 @@ export default function PageOne(){
             return;
         }
         let tempContains = drink.contains;
-        tempContains[name] = percent;
-        setDrink({cap: newCap, contains: tempContains, sugar:100});
+        if (Number(percent) === 0){
+            delete tempContains[name];
+        } else {
+            tempContains[name] = percent;
+        }
+        setDrink({cap: newCap, contains: tempContains, sugar:100, id: drink.id});
         console.log(JSON.stringify(drink));
     } 
 
@@ -70,7 +74,11 @@ export default function PageOne(){
             </div>
             <div className="col4">
                 <Numpad optName={current.opt} val={drink.contains[current.opt]} addFunc={addElement}/>
-                <div className="add-button clickable noselect" onClick={()=>{setOrder([...orders, drink]); setDrink({cap:100, contains:{}, sugar: 100, id: drink.id + 1})}}>Add drink to order</div>
+                <div 
+                    className="add-button clickable noselect" 
+                    onClick={()=>{setOrder([...orders, drink]); setDrink({cap:100, contains:{}, sugar: 100, id: drink.id + 1})}}>
+                    Add drink to order
+                </div>
             </div>
         </div>
     );
