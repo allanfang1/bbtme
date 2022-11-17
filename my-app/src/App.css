@@ -8,6 +8,10 @@
                                   supported by Chrome, Edge, Opera and Firefox */
 }
 
+.clickable{
+  cursor: pointer;
+}
+
 /* mobile view */
 @media (max-width: 480px) {
 
@@ -24,6 +28,7 @@
   display: flex;
   flex-direction: column;
   overflow-y: auto;
+  flex-shrink: 0;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
@@ -32,7 +37,14 @@
 }
 
 .col1, .col2{
-  width: 300px;
+  width: 24%;
+  max-width: 300px;
+  min-width: 150px;
+}
+
+.col3{
+  flex-grow: 1;
+  min-width: 150px;
 }
 
 .col-box{
@@ -55,4 +67,23 @@
 
 #selected{
   color: red;
+}
+
+.numpad{
+  display: flex;
+}
+
+.num{
+  width: 50px;
+  height: 50px;
+  border: solid 1px greenyellow;
+  display: flex;
+  justify-content: center;
+  align-items: center;;
+}
+
+.add-button{
+  border: solid 1px brown;
+  text-align: center;
+  padding: 10px;
 }
