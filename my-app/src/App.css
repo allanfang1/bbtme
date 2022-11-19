@@ -84,6 +84,18 @@
 
 .add-button{
   border: solid 1px brown;
+  display: flex;
+  justify-content: center;
   text-align: center;
   padding: 10px;
+}
+
+.drink-visual{
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+  border: solid 2px magenta;
+  padding: 2px;
+  height: 100px;
+  justify-content: flex-end;
 }
