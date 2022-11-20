@@ -1,11 +1,11 @@
 import { React } from "react"
 
-const Option = ({optName, current, clickFunc}) => {
+const Option = ({optName, currOpt, clickFunc}) => {
     return (
         <div 
             className="col-box noselect clickable"
-            id={current.opt === optName ? "selected" : "" } 
-            onClick={() => clickFunc({cat: current.cat, content: current.content, opt: optName})} >
+            id={currOpt === optName ? "selected" : "" } 
+            onClick={() => clickFunc(optName)} >
                 <div className="cat-name">{optName}</div>
                 {/* <div>{current}</div> */}
         </div>
