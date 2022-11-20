@@ -102,6 +102,22 @@
   padding: 10px;
 }
 
+.order-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  font-size: 40px;
+  background-color: #7289da;
+  width: 100vw;
+  height: 100vh;
+}
+
+.order-cell{
+  border: solid 1px black;
+}
+
 .drink-visual{
   display: flex;
   flex-direction: column;
