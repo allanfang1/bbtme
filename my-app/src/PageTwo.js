@@ -6,11 +6,11 @@ import 'react-multi-carousel/lib/styles.css';
 
 export default function PageTwo() {
     const orders = [
-        { orderID: "1", time: "/media/allan.png", size: "Medium", base: "Passionfruit Green Tea", topping: ["Tapioca", 20], sugar: 34, ice: 20 },
-        { orderID: "2", time: "/media/allan.png", size: "Large", base: "Passionfruit Green Tea", topping: ["Tapioca", 20], sugar: 34, ice: 20 },
-        { orderID: "3", time: "/media/allan.png", size: "Small", base: "Passionfruit Green Tea", topping: ["Tapioca", 20], sugar: 34, ice: 20 },
-        { orderID: "4", time: "/media/allan.png", size: "Small", base: "Passionfruit Green Tea", topping: ["Tapioca", 20], sugar: 34, ice: 20 },
-        { orderID: "5", time: "/media/allan.png", size: "Small", base: "Passionfruit Green Tea", topping: ["Tapioca", 20], sugar: 34, ice: 20 }
+        { orderID: "1", time: "Nov 18, 8:00 PM", size: "Medium", base: "Passionfruit Green Tea", topping: ["Tapioca", 20], sugar: 34, ice: 20 },
+        { orderID: "2", time: "Nov 18, 8:30 PM", size: "Large", base: "Passionfruit Green Tea", topping: ["Tapioca", 20], sugar: 34, ice: 20 },
+        { orderID: "3", time: "Nov 18, 8:31 PM", size: "Small", base: "Passionfruit Green Tea", topping: ["Tapioca", 20], sugar: 34, ice: 20 },
+        { orderID: "4", time: "Nov 18, 8:37 PM", size: "Small", base: "Passionfruit Green Tea", topping: ["Tapioca", 20], sugar: 34, ice: 20 },
+        { orderID: "5", time: "Nov 18, 8:45 PM", size: "Small", base: "Passionfruit Green Tea", topping: ["Tapioca", 20], sugar: 34, ice: 20 }
     ]
 
     const responsive = {
