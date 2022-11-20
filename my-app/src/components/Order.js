@@ -3,8 +3,8 @@ import { React } from "react"
 const Order = ({ ordObj, key }) => {
     return (
         <div className="order-cell">
-            <div>{"Order ID: " + ordObj.orderID}</div>
-            <div>{ordObj.time}</div>
+            <div className="order-cell">{"Order ID: " + ordObj.orderID}</div>
+            <div className="order-cell">{ordObj.time}</div>
             <br></br>
             <div>{ordObj.size}</div>
             <div>{ordObj.base}</div>
