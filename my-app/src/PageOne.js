@@ -2,7 +2,7 @@ import { React, useState, useEffect } from "react";
 import Category from "./components/Category";
 import Option from "./components/Option";
 import Numpad from "./components/Numpad";
-import { redirect } from "react-router-dom";
+import { redirect, Link } from "react-router-dom";
 
 export default function PageOne() {
     const colors = ["#FF0000", "#3C00FF", "#00DEFF", "#09FF00", "#FFF700", "#FFA200", "#B300FF", "#00FF91", "#FF00DE",]
@@ -167,6 +167,11 @@ export default function PageOne() {
                     onClick={() => { setOrder([...orders, drink]); setDrink({ cap: 100, contains: {}, sugar: 100, id: drink.id + 1 }) }}>
                     Add drink to order
                 </div>
+                <Link className="add-button clickable noselect" 
+                    to="/PageTwo" >
+                    Review Order
+                </Link>
+                
             </div>
         </div>
     );
