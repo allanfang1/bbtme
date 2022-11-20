@@ -144,13 +144,12 @@ export default function PageOne() {
                 ))}
             </div>
             <div className="col3">
-                <div className="add-button">{JSON.stringify(drink)}</div>
-                <div className="add-button">{JSON.stringify(orders)}</div>
+                
                 <div className="add-button">
                     <div className="drink-visual">
                         {Object.keys(drink.contains).map((key, index) => (
-                            <svg width="100px" height={drink.contains[key]} key={index}>
-                                <rect width="100px" height={drink.contains[key]} fill={colors[index]} />
+                            <svg width="100px" height={drink.contains[key]*2} key={index}>
+                                <rect width="100px" height={drink.contains[key]*2} fill={colors[index]} />
                             </svg>
                         ))}
                     </div>
@@ -158,6 +157,8 @@ export default function PageOne() {
                 <div className="add-button">
                     <input type="range" min="0" max="100" value={currNum} onChange={(e) => handleSlider(e.target.value)} />
                 </div>
+                <div className="add-button">{JSON.stringify(drink)}</div>
+                <div className="add-button">{JSON.stringify(orders)}</div>
             </div>
             <div className="col4">
                 <Numpad optName={currOpt} val={currNum} addFunc={addElement} setNumFunc={padSetNum} />
