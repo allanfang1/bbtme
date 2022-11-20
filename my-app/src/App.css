@@ -19,8 +19,9 @@
 
 .general-box{
   height: 100vh;
-  border: solid 1px red;
+  border: solid 10px #ccd5ae;
   display: flex; 
+  background-color: #e9edc9;
 }
 
 .cols{
@@ -48,12 +49,21 @@
 }
 
 .col-box{
-  border: solid 1px blue;
+  border: solid #d4a373;
+  border-top-style: none;
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-left-style: none;
+
+  border-radius: 5px;
+
+  background-color: #fefae0;
   display: flex;
   height: 60px;
   justify-content: flex-start;
   align-items: center;
   padding: 10px;
+  
 }
 
 .cat-name{
@@ -66,7 +76,9 @@
 }
 
 #selected{
-  color: red;
+  border-right-style: dotted;
+  color: black;
+  font-weight: bold;
 }
 
 .numpad{
