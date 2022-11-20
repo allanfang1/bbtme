@@ -87,3 +87,10 @@
   text-align: center;
   padding: 10px;
 }
+
+.order-container{
+  display: flex;
+  flex-direction: column;
+  border: solid 1px brown;
+  width: 75vw;
+}
