@@ -99,6 +99,11 @@
   align-items: center;;
 }
 
+.range-slider{
+  -webkit-appearance: slider-vertical;
+  -webkit-appearance: slider-vertical;
+}
+
 .add-button{
   text-decoration: none;
   border: solid #d4a373;

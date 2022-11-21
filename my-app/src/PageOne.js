@@ -176,10 +176,9 @@ export default function PageOne() {
                             </svg>
                         ))}
                     </div>
+                    <input className="range-slider" type="range" min="0" max="100" value={currNum} onChange={(e) => handleSlider(e.target.value)} />
                 </div>
-                <div className="add-button">
-                    <input type="range" min="0" max="100" value={currNum} onChange={(e) => handleSlider(e.target.value)} />
-                </div>
+
                 <div className="drink-string show-white-space"><u>Current Drink</u>: {stringifyDrink(drink)}</div>
                 <div className="drink-string show-white-space"><u>Current Order</u>: {stringifyOrder(orders)}</div>
             </div>
