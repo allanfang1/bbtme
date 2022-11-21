@@ -115,6 +115,22 @@
   padding: 10px;
 }
 
+.drink-string{
+  text-decoration: none;
+  border: solid #d4a373;
+  border-top-style: solid;
+  border-right-style: none;
+  border-bottom-style: none;
+  border-left-style: solid; 
+  background-color: #fefae0;
+
+  padding: 10px;
+}
+
+.show-white-space {
+    white-space: pre-wrap;
+}
+
 .order-container{
   display: flex;
   align-items: center;
