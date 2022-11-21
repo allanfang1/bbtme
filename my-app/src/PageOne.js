@@ -17,7 +17,6 @@ export default function PageOne() {
     const [orders, setOrder] = useState([]);
     const [drink, setDrink] = useState({ cap: 100, contains: {}, sugar: 100, id: 0 });
     const [currNum, setCurrNum] = useState(0);
-    const [color, setColor] = useState("red")
 
     useEffect(() => {
         // console.log(currCat);
@@ -27,7 +26,9 @@ export default function PageOne() {
     }, [drink]);
 
     useEffect(() => {
-        if (!drink.contains[currOpt]) {
+        if (currOpt === "Sugar"){
+            setCurrNum(drink.sugar);
+        } else if (!drink.contains[currOpt]) {
             setCurrNum(0);
         } else {
             setCurrNum(drink.contains[currOpt]);
@@ -52,33 +53,16 @@ export default function PageOne() {
 
     function handleSlider(x) {
         let temp = 0;
-        if (drink.contains[currOpt]) {
+        if (currOpt === "Sugar"){
+            setCurrNum(x);
+            return;
+        } else if (drink.contains[currOpt]) {
             temp = Number(drink.contains[currOpt])
         }
-        let temp2= Number(drink.cap) + temp;
         if (x > Number(drink.cap) + temp || !currOpt) {
             return;
         }
-        // console.log(x > temp2)
-        // console.log("slider = " + x);
-        // console.log("cap is = " + drink.cap)
-        // console.log("existing + cap =" + temp2);
         setCurrNum(x);
-        setTimeout(100);
-    }
-
-    function bob(){
-        return "red";
-    }
-    function chooseColor() {
-        if (color === "red") {
-            setColor("blue");
-        } else if (color === "blue") {
-            setColor("green")
-        } else if (color === "green") {
-            setColor("red")
-        }
-        return color;
     }
 
     function padSetNum(x) {
@@ -86,13 +70,14 @@ export default function PageOne() {
             return;
         }
         let newVal;
+        
         if (x === -1 && currNum < 10) {
             newVal = 0;
         } else if (x === -1) {
             newVal = Number(String(currNum).substring(0, String(currNum).length - 1));
         } else if (currNum === 0) {
             newVal = x;
-        } else if (Number("" + currNum + x) < drink.cap) {
+        } else if (Number("" + currNum + x) < drink.cap || currOpt === "Sugar") {
             newVal = Number("" + currNum + x);
         } else {
             return;
@@ -117,7 +102,7 @@ export default function PageOne() {
             newCap -= drink.contains[key];
         })
         //console.log(newCap + "boop");
-        setDrink({ cap: newCap, contains: tempContains, sugar: 100, id: drink.id });
+        setDrink({ cap: newCap, contains: tempContains, sugar: drink.sugar, id: drink.id });
         //console.log(JSON.stringify(drink));
     }
 
@@ -186,7 +171,7 @@ export default function PageOne() {
                 <Numpad optName={currOpt} val={currNum} addFunc={addElement} setNumFunc={padSetNum} />
                 <div
                     className="add-button clickable noselect"
-                    onClick={() => { setOrder([...orders, drink]); setDrink({ cap: 100, contains: {}, sugar: 100, id: drink.id + 1 }) }}>
+                    onClick={() => { setOrder([...orders, drink]); setDrink({ cap: 100, contains: {}, sugar: 100, id: drink.id + 1 }); setCurrNum(0); setCurrOpt(""); }}>
                     Add drink to order
                 </div>
                 <Link className="add-button clickable noselect" 
