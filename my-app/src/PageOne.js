@@ -2,15 +2,15 @@ import { React, useState, useEffect } from "react";
 import Category from "./components/Category";
 import Option from "./components/Option";
 import Numpad from "./components/Numpad";
-import { redirect } from "react-router-dom";
+import { redirect, Link } from "react-router-dom";
 
 export default function PageOne() {
     const colors = ["#FF0000", "#3C00FF", "#00DEFF", "#09FF00", "#FFF700", "#FFA200", "#B300FF", "#00FF91", "#FF00DE",]
     const categories = [
-        { name: "Base", imglink: "/media/allan.png", content: ["Brown Sugar Milk", "Rose Oolong", "Chai", "Passionfruit Green Tea"] },
-        { name: "Topping", imglink: "/media/allan.png", content: ["Tapioca", "Grass Jelly", "Sago", "Pudding", "Lychee Jelly"] },
-        { name: "Tuning", imglink: "/media/allan.png", content: ["Sugar", "Ice"] },
-        { name: "Love", imglink: "/media/allan.png", content: ["Yes"] },
+        { name: "Base", imglink: "/media/green-tea.png", content: ["Brown Sugar Milk", "Rose Oolong", "Chai", "Passionfruit Green Tea"] },
+        { name: "Topping", imglink: "/media/tapioca-pearls.png", content: ["Tapioca", "Grass Jelly", "Sago", "Pudding", "Lychee Jelly"] },
+        { name: "Tuning", imglink: "/media/sugar-cube.png", content: ["Sugar", "Ice"] },
+        { name: "Love", imglink: "/media/love.png", content: ["Love"] },
     ]
     const [currCat, setCurrCat] = useState({ name: "", content: [] });
     const [currOpt, setCurrOpt] = useState("");
@@ -121,6 +121,29 @@ export default function PageOne() {
         //console.log(JSON.stringify(drink));
     }
 
+    function stringifyDrink(drink){
+        var str = "";
+        str += "Drink #" + drink.id + "\n";
+        str += "  Sugar: " + drink.sugar + "\n"
+
+        for (var key in drink.contains){
+            var value = drink.contains[key];
+            str += "  " + key + ": " + value + "\n";
+        }
+
+        return str;//+ JSON.stringify(drink);
+    }
+
+    function stringifyOrder(order){
+        var str = "\n";
+
+        for (var i = 0 ; i < order.length ; i++){
+            str += stringifyDrink(order[i]);
+        }
+
+        return str;
+    }
+
     return (
         <div className="general-box pone-box">
             <div className="cols col1">
@@ -144,20 +167,20 @@ export default function PageOne() {
                 ))}
             </div>
             <div className="col3">
-                <div className="add-button">{JSON.stringify(drink)}</div>
-                <div className="add-button">{JSON.stringify(orders)}</div>
+                
                 <div className="add-button">
                     <div className="drink-visual">
                         {Object.keys(drink.contains).map((key, index) => (
-                            <svg width="100px" height={drink.contains[key]} key={index}>
-                                <rect width="100px" height={drink.contains[key]} fill={colors[index]} />
+                            <svg width="100px" height={drink.contains[key]*2} key={index}>
+                                <rect width="100px" height={drink.contains[key]*2} fill={colors[index]} />
                             </svg>
                         ))}
                     </div>
+                    <input className="range-slider" type="range" min="0" max="100" value={currNum} onChange={(e) => handleSlider(e.target.value)} />
                 </div>
-                <div className="add-button">
-                    <input type="range" min="0" max="100" value={currNum} onChange={(e) => handleSlider(e.target.value)} />
-                </div>
+
+                <div className="drink-string show-white-space"><u>Current Drink</u>: {stringifyDrink(drink)}</div>
+                <div className="drink-string show-white-space"><u>Current Order</u>: {stringifyOrder(orders)}</div>
             </div>
             <div className="col4">
                 <Numpad optName={currOpt} val={currNum} addFunc={addElement} setNumFunc={padSetNum} />
@@ -166,6 +189,11 @@ export default function PageOne() {
                     onClick={() => { setOrder([...orders, drink]); setDrink({ cap: 100, contains: {}, sugar: 100, id: drink.id + 1 }) }}>
                     Add drink to order
                 </div>
+                <Link className="add-button clickable noselect" 
+                    to="/PageTwo" >
+                    Review Order
+                </Link>
+                
             </div>
         </div>
     );
