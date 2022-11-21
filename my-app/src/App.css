@@ -91,19 +91,21 @@
 }
 
 .order-container{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
   text-align: center;
   font-size: 40px;
-  background-color: #7289da;
+  background-color: #e9edc9;
   width: 100vw;
   height: 100vh;
 }
 
 .order-cell{
   border: solid 1px black;
+  background-color: #fefae0;
+  padding: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .drink-visual{
@@ -114,4 +116,15 @@
   padding: 2px;
   height: 100px;
   justify-content: flex-end;
+}
+
+.resolve-cell{
+  border: solid 1px black;
+  cursor: pointer;
+  padding: 5%;
+  background-color: lightgray;
+}
+
+#hideDiv{
+  display: none;
 }
