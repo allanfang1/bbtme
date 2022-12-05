@@ -7,10 +7,10 @@ import { redirect, Link } from "react-router-dom";
 export default function PageOne() {
     const colors = ["#FF0000", "#3C00FF", "#00DEFF", "#09FF00", "#FFF700", "#FFA200", "#B300FF", "#00FF91", "#FF00DE",]
     const categories = [
-        { name: "Base", imglink: "/media/green-tea.png", content: ["Brown Sugar Milk", "Rose Oolong", "Chai", "Passionfruit Green Tea"] },
-        { name: "Topping", imglink: "/media/tapioca-pearls.png", content: ["Tapioca", "Grass Jelly", "Sago", "Pudding", "Lychee Jelly"] },
-        { name: "Tuning", imglink: "/media/sugar-cube.png", content: ["Sugar", "Ice"] },
-        { name: "Love", imglink: "/media/love.png", content: ["Love"] },
+        { name: "Base", imglink: "media/green-tea.png", content: ["Brown Sugar Milk", "Rose Oolong", "Chai", "Passionfruit Green Tea"] },
+        { name: "Topping", imglink: "media/tapioca-pearls.png", content: ["Tapioca", "Grass Jelly", "Sago", "Pudding", "Lychee Jelly"] },
+        { name: "Tuning", imglink: "media/sugar-cube.png", content: ["Sugar", "Ice"] },
+        { name: "Love", imglink: "media/love.png", content: ["Love"] },
     ]
     const [currCat, setCurrCat] = useState({ name: "", content: [] });
     const [currOpt, setCurrOpt] = useState("");
